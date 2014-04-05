@@ -100,45 +100,40 @@ def log(data_size, lang_count):
         f.write("Time Elapsed: {}\n".format((datetime.now() - START_TIME).seconds))
 
 def main():
-    with open(CONFIG['DataFile']) as infile:
-        i = 0
-        post = None
-        lang_count = {}
-        data_size = 0
-        last_log = datetime.now()
-        for line in infile:
-            try:
-                data_size += sys.getsizeof(line)
-                soup = BeautifulSoup(line, parse_only=only_row_tags)
-                if soup.row:
-                    post_type = int(soup.row.get('posttypeid'))
-                    post_class = {
-                        1: Question,
-                        2: Answer
-                    }[post_type]
-                    post = post_class(soup.row)
-                else:
-                    continue
-                if post.post_type == 'question':
-                    # If a post is tagged with one of the popular languages, add
-                    # it to the data set.
-                    lang = post.get_lang()
-                    lang = 'html/css' if lang in ['html', 'css'] else lang
-                    if lang:
-                        # Keep track of amount of posts processed per language
-                        lang_count[lang] = lang_count.get(lang, 0) + 1
-                        print("{}\t{}".format(lang, json.dumps(post.serialize())))
-            except Exception as e:
-                with open('error.log', 'a') as f:
-                    f.write(e)
-            # Log every 30 seconds
-            if (datetime.now() - last_log).seconds > 2:
-                log(data_size, lang_count)
-                last_log = datetime.now()
-            i += 1
-            if i == 5000:
-                print lang_count
-                break
+    i = 0
+    post = None
+    lang_count = {}
+    data_size = 0
+    last_log = datetime.now()
+    for line in sys.stdin:
+        try:
+            data_size += sys.getsizeof(line)
+            soup = BeautifulSoup(line, parse_only=only_row_tags)
+            if soup.row:
+                post_type = int(soup.row.get('posttypeid'))
+                post_class = {
+                    1: Question,
+                    2: Answer
+                }[post_type]
+                post = post_class(soup.row)
+            else:
+                continue
+            if post.post_type == 'question':
+                # If a post is tagged with one of the popular languages, add
+                # it to the data set.
+                lang = post.get_lang()
+                lang = 'html/css' if lang in ['html', 'css'] else lang
+                if lang:
+                    # Keep track of amount of posts processed per language
+                    lang_count[lang] = lang_count.get(lang, 0) + 1
+                    print("{}\t{}".format(lang, json.dumps(post.serialize())))
+        except Exception as e:
+            with open('error.log', 'a') as f:
+                f.write("ERROR: {}".format(str(e)))
+        # Log every 30 seconds
+        if (datetime.now() - last_log).seconds > 30:
+            log(data_size, lang_count)
+            last_log = datetime.now()
 if __name__ == '__main__':
     # Load in the settings
     START_TIME = datetime.now()
