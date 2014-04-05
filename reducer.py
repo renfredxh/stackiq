@@ -21,6 +21,11 @@ def average_data(data, total):
             data[k] = data[k]/total
     return data
 
+def compute_composites(data):
+    data['composite_intellegence'] = data['linguistics_data']['min_age'] ** 1.5
+    + 10 * data['linguistics_data']['reading_level']
+
+    data['composite_community'] = (data['answer_count'] * 10000 + data['view_count'] + data['score'] * 5000) / 1000
 current_lang = None
 current_count = 0
 word = None
@@ -40,6 +45,7 @@ for line in sys.stdin:
     else:
         if current_lang:
             current_data = average_data(current_data, current_data['count'])
+            compute_composites(current_data)
             # Print the reduced data set
             print("{}\t{}".format(current_lang, json.dumps(current_data)))
         current_data = data
@@ -48,4 +54,5 @@ for line in sys.stdin:
 # do not forget to output the last word if needed!
 if current_lang == lang:
     current_data = average_data(current_data, current_data['count'])
+    compute_composites(current_data)
     print("{}\t{}".format(current_lang, json.dumps(current_data)))
