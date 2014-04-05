@@ -1,5 +1,6 @@
 import re
 import yaml
+import json
 from html2text import html2text
 from bs4 import BeautifulSoup, SoupStrainer
 from readability_score.calculators import ari, colemanliau, fleschkincaid, smog
@@ -115,7 +116,7 @@ def main():
                 if lang:
                     # Keep track of amount of posts processed per language
                     lang_count[lang] = lang_count.get(lang, 0) + 1
-                    print("{}\t{}".format(lang, post.serialize()))
+                    print("{}\t{}".format(lang, json.dumps(post.serialize())))
             posts.append(post)
             i += 1
             if i == 5000:
