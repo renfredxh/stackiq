@@ -74,7 +74,7 @@ class Question(Post):
 
     def get_scores_to_views(self):
         # Return ratio of total score of questions vs views of questions
-        return self.score/float(self.view_count)
+        return 0 if self.view_count else self.score/float(self.view_count)
 
     def serialize(self):
         return {
