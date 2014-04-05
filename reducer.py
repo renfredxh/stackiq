@@ -3,6 +3,8 @@ import sys
 
 def accumulate_data(data1, data2):
     for k in data1:
+        if k == 'count':
+            continue
         if isinstance(data1[k], dict):
             data1[k] = accumulate_data(data1[k], data2[k])
         else:
@@ -22,6 +24,7 @@ for line in sys.stdin:
     # Only works if sorted
     if current_lang == lang:
         current_data = accumulate_data(current_data, data)
+        current_data['count'] = current_data.get('count', 0) + 1
     else:
         if current_lang:
             print("{}\t{}".format(current_lang, current_data))
