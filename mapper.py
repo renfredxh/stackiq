@@ -94,13 +94,14 @@ def avg(xs):
     """Return the average of a list"""
     return sum(xs)/len(xs)
 
-def log(data_size, lang_count):
+def log(data_size, lang_count, post_count):
     with open('stats.log', 'a') as f:
+        f.write("Entities Processed: {} ".format(post_count))
         f.write("MBs Read: {0:.2f} ".format(data_size/float(1000*1000)))
         f.write("Time Elapsed: {}\n".format((datetime.now() - START_TIME).seconds))
 
 def main():
-    i = 0
+    post_count = 0
     post = None
     lang_count = {}
     data_size = 0
@@ -132,8 +133,10 @@ def main():
                 f.write("ERROR: {}".format(str(e)))
         # Log every 30 seconds
         if (datetime.now() - last_log).seconds > 30:
-            log(data_size, lang_count)
+            log(data_size, lang_count, post_count)
             last_log = datetime.now()
+        post_count += 1
+
 if __name__ == '__main__':
     # Load in the settings
     START_TIME = datetime.now()
