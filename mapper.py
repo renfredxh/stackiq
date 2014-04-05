@@ -1,5 +1,5 @@
 import re
-from pprint import pprint
+import yaml
 from html2text import html2text
 from bs4 import BeautifulSoup, SoupStrainer
 from readability_score.calculators import ari, colemanliau, fleschkincaid, smog
@@ -61,16 +61,12 @@ class Question(Post):
         return set(t)
 
     def get_lang(self):
-        LANGS = {
-            "C#", "Java", "Javascript", "PHP", "Python", "C++", ".NET",
-            "HTML/CSS", "HTML", "CSS",  "Objective-C", "C", "Ruby", "Perl", "Delphi",
-            "Scala", "Haskell", "Lisp"
-        }
+        langs = CONFIG['Langs']
         # Lowercase langs for simplicity
-        LANGS = [l.lower() for l in LANGS]
+        langs = [l.lower() for l in langs]
         # Return the primary language for this question
         for tag in self.tags:
-            if tag in LANGS:
+            if tag in langs:
                 return tag
 
     def get_scores_to_views(self):
@@ -90,14 +86,13 @@ class Question(Post):
 only_row_tags = SoupStrainer("row")
 
 posts = []
-DATA = "/Users/Renfred/Desktop/Data/stackoverflow.com-Posts"
 
 def avg(xs):
     """Return the average of a list"""
     return sum(xs)/len(xs)
 
 def main():
-    with open(DATA) as infile:
+    with open(CONFIG['DataFile']) as infile:
         i = 0
         post = None
         lang_count = {}
@@ -120,11 +115,14 @@ def main():
                 if lang:
                     # Keep track of amount of posts processed per language
                     lang_count[lang] = lang_count.get(lang, 0) + 1
-                    print("{}\t{}\n".format(lang, post.serialize()))
+                    print("{}\t{}".format(lang, post.serialize()))
             posts.append(post)
             i += 1
             if i == 5000:
                 print lang_count
                 break
-
-main()
+if __name__ == '__main__':
+    # Load in the settings
+    with open('config.yml') as f:
+        CONFIG = yaml.load(f)
+    main()
