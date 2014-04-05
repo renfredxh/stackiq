@@ -100,6 +100,7 @@ def main():
     with open(DATA) as infile:
         i = 0
         post = None
+        lang_count = {}
         for line in infile:
             soup = BeautifulSoup(line, parse_only=only_row_tags)
             if soup.row:
@@ -117,10 +118,13 @@ def main():
                 lang = post.get_lang()
                 lang = 'html/css' if lang in ['html', 'css'] else lang
                 if lang:
+                    # Keep track of amount of posts processed per language
+                    lang_count[lang] = lang_count.get(lang, 0) + 1
                     print("{}\t{}\n".format(lang, post.serialize()))
             posts.append(post)
             i += 1
-            if i == 500:
+            if i == 5000:
+                print lang_count
                 break
 
 main()
