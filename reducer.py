@@ -17,6 +17,8 @@ word = None
 
 for line in sys.stdin:
     line = line.strip()
+    if '\t' not in line:
+        continue
     lang, data = line.split('\t', 1)
     # Convert serialized data string to json ('sort -k1,1')
     data = json.loads(data)
