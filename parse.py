@@ -15,6 +15,7 @@ class Post(object):
         # Strip out blocks of code to get a fair assesment on reading level
         code_block_pattern = r'(\n((( {4}|\t).*\n)|\n)*(( {4}|\t).*))?'
         text = re.sub(code_block_pattern, '', self.body)
+        text = text.encode('ascii', 'ignore')
         scorers = {
             ari.ARI,
             colemanliau.ColemanLiau,
