@@ -79,11 +79,11 @@ class Question(Post):
     def serialize(self):
         return {
             'score': self.score,
-            'anwser_count': self.answer_count,
+            'answer_count': self.answer_count,
             'view_count': self.view_count,
             'favorite_count': self.favorite_count,
             'scores_to_views': self.get_scores_to_views(),
-            'lingustics_data': self.get_linguistics_data()
+            'linguistics_data': self.get_linguistics_data()
         }
 
 only_row_tags = SoupStrainer("row")
