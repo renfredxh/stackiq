@@ -98,26 +98,30 @@ def main():
         post = None
         lang_count = {}
         for line in infile:
-            soup = BeautifulSoup(line, parse_only=only_row_tags)
-            if soup.row:
-                post_type = int(soup.row.get('posttypeid'))
-                post_class = {
-                    1: Question,
-                    2: Answer
-                }[post_type]
-                post = post_class(soup.row)
-            else:
-                continue
-            if post.post_type == 'question':
-                # If a post is tagged with one of the popular languages, add
-                # it to the data set.
-                lang = post.get_lang()
-                lang = 'html/css' if lang in ['html', 'css'] else lang
-                if lang:
-                    # Keep track of amount of posts processed per language
-                    lang_count[lang] = lang_count.get(lang, 0) + 1
-                    print("{}\t{}".format(lang, json.dumps(post.serialize())))
-            posts.append(post)
+            try:
+                data_size += sys.getsizeof(line)
+                soup = BeautifulSoup(line, parse_only=only_row_tags)
+                if soup.row:
+                    post_type = int(soup.row.get('posttypeid'))
+                    post_class = {
+                        1: Question,
+                        2: Answer
+                    }[post_type]
+                    post = post_class(soup.row)
+                else:
+                    continue
+                if post.post_type == 'question':
+                    # If a post is tagged with one of the popular languages, add
+                    # it to the data set.
+                    lang = post.get_lang()
+                    lang = 'html/css' if lang in ['html', 'css'] else lang
+                    if lang:
+                        # Keep track of amount of posts processed per language
+                        lang_count[lang] = lang_count.get(lang, 0) + 1
+                        print("{}\t{}".format(lang, json.dumps(post.serialize())))
+            except Exception as e:
+                with open('error.log', 'a') as f:
+                    f.write(e)
             i += 1
             if i == 5000:
                 print lang_count
