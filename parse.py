@@ -38,6 +38,7 @@ class Post(object):
     def __str__(self):
         return str(self.__dict__)
 
+
 class Answer(Post):
     def __init__(self, xml):
         super(Answer, self).__init__(xml)
@@ -47,13 +48,13 @@ class Question(Post):
     def __init__(self, xml):
         super(Question, self).__init__(xml)
         self.post_type = 'question'
-        self.answercount = int(xml.get('answercount'))
-        self.favoritecount = int(xml.get('favoritecount'))
+        self.answer_count = int(xml.get('answercount'))
+        self.favorite_count = int((xml.get('favoritecount') or 0))
         self.tags = self.get_tags(xml.get('tags'))
-        self.viewcount = int(xml.get('viewcount'))
+        self.view_count = int(xml.get('viewcount'))
 
     def get_tags(self, tags):
-        # Find all tags in the raw string, seperate them and strip 
+        # Find all tags in the raw string, seperate them and strip
         # them of their angle brackets (i.e. <python>)
         t = re.findall(r'(?<=\<)[^\>]+(?=\>)', tags)
         return set(t)
@@ -73,12 +74,16 @@ class Question(Post):
 
     def get_scores_to_views(self):
         # Return ratio of total score of questions vs views of questions
-        return self.score/float(self.viewcount)
+        return self.score/float(self.view_count)
 
     def serialize(self):
         return {
             'score': self.score,
+            'anwser_count': self.answer_count,
+            'view_count': self.view_count,
+            'favorite_count': self.favorite_count,
             'scores_to_views': self.get_scores_to_views(),
+            'lingustics_data': self.get_linguistics_data()
         }
 
 only_row_tags = SoupStrainer("row")
@@ -109,11 +114,12 @@ def main():
                 # If a post is tagged with one of the popular languages, add
                 # it to the data set.
                 lang = post.get_lang()
+                lang = 'html/css' if lang in ['html', 'css'] else lang
                 if lang:
-                    print("{}\t{}".format(lang, post.serialize()))
-            #posts.append(post)
+                    print("{}\t{}\n".format(lang, post.serialize()))
+            posts.append(post)
             i += 1
-            if i == 30:
+            if i == 500:
                 break
 
 main()
