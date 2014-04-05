@@ -1,12 +1,39 @@
 import re
+from pprint import pprint
 from html2text import html2text
 from bs4 import BeautifulSoup, SoupStrainer
+from readability_score.calculators import ari, colemanliau, fleschkincaid, smog
 
 class Post(object):
+
     def __init__(self, xml):
         self.body =  html2text(xml.get('body'))
         self.title = xml.get('title')
         self.score = int(xml.get('score'))
+
+    def get_linguistics_data(self):
+        # Strip out blocks of code to get a fair assesment on reading level
+        code_block_pattern = r'(\n((( {4}|\t).*\n)|\n)*(( {4}|\t).*))?'
+        text = re.sub(code_block_pattern, '', self.body)
+        scorers = {
+            ari.ARI,
+            colemanliau.ColemanLiau,
+            fleschkincaid.FleschKincaid,
+            smog.SMOG
+        }
+
+        grades, min_ages = [], []
+        for scorer in scorers:
+            text_metadata = scorer(text, locale='en_US')
+            grades.append(text_metadata.us_grade)
+            min_ages.append(text_metadata.min_age)
+
+        grade, min_age = avg(grades), avg(min_ages)
+        return {
+            'min_age': min_age,
+            'reading_level': grade,
+            'word_count': text_metadata.scores['word_count']
+        }
 
     def __str__(self):
         return str(self.__dict__)
@@ -58,6 +85,10 @@ only_row_tags = SoupStrainer("row")
 
 posts = []
 DATA = "/Users/Renfred/Desktop/Data/stackoverflow.com-Posts"
+
+def avg(xs):
+    """Return the average of a list"""
+    return sum(xs)/len(xs)
 
 def main():
     with open(DATA) as infile:
