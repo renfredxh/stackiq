@@ -1,6 +1,8 @@
 import re
 import yaml
 import json
+import sys
+from datetime import datetime
 from html2text import html2text
 from bs4 import BeautifulSoup, SoupStrainer
 from readability_score.calculators import ari, colemanliau, fleschkincaid, smog
@@ -92,11 +94,18 @@ def avg(xs):
     """Return the average of a list"""
     return sum(xs)/len(xs)
 
+def log(data_size, lang_count):
+    with open('stats.log', 'a') as f:
+        f.write("MBs Read: {0:.2f} ".format(data_size/float(1000*1000)))
+        f.write("Time Elapsed: {}\n".format((datetime.now() - START_TIME).seconds))
+
 def main():
     with open(CONFIG['DataFile']) as infile:
         i = 0
         post = None
         lang_count = {}
+        data_size = 0
+        last_log = datetime.now()
         for line in infile:
             try:
                 data_size += sys.getsizeof(line)
@@ -122,12 +131,17 @@ def main():
             except Exception as e:
                 with open('error.log', 'a') as f:
                     f.write(e)
+            # Log every 30 seconds
+            if (datetime.now() - last_log).seconds > 2:
+                log(data_size, lang_count)
+                last_log = datetime.now()
             i += 1
             if i == 5000:
                 print lang_count
                 break
 if __name__ == '__main__':
     # Load in the settings
+    START_TIME = datetime.now()
     with open('config.yml') as f:
         CONFIG = yaml.load(f)
     main()
