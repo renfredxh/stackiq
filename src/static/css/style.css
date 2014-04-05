@@ -1,0 +1,139 @@
+.bubble {
+	position: absolute;
+	top: 0px !important;
+	left: 0px;
+  width: 100%;
+  height: 100%;
+}
+
+svg {
+  cursor: ew-resize;
+}
+
+.dropdown {
+  position: absolute;
+  right: 25px;
+  top: 25px;
+  float: right;
+  z-index: 1;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #ccc;
+    shape-rendering: crispEdges;
+}
+
+.axis text {
+    fill: #666 !important;
+    font-family: sans-serif;
+    font-size: 11px;
+}
+
+.gc {
+  -webkit-transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.gc:hover {
+  opacity: 0.8;
+}
+
+.popover {
+  width: 240px;
+}
+
+button {
+  color: rgb(70,184,218) !important;
+  background-color: transparent !important;
+}
+
+button:hover {
+  background-color: transparent !important;
+}
+
+button:active {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.open button {
+  background-color: rgb(70,184,218) !important;
+  color: #fff !important;
+  box-shadow: none !important;
+}
+
+.dropdown-menu {
+  background-color: #fff !important;
+  box-shadow: none !important;
+  border: solid 1px rgb(70,184,218) !important;
+  color: rgb(70,184,218) !important;
+  margin-top: 3px;
+}
+
+.dropdown-menu li a {
+  color: rgb(70,184,218) !important;
+}
+
+.dropdown-menu li a:hover {
+  color: #fff !important;
+  background-color: rgb(70,184,218) !important;
+}
+
+.divider {
+  background-color: rgb(70,184,218) !important;
+}
+
+.popover {
+  background-color: #fff !important;
+  border: solid 1px rgb(70,184,218) !important;
+  color: rgb(70,184,218);
+  box-shadow: 0px 1px 0px rgba(0,0,0,0.1);
+}
+
+.popover h3 {
+  background-color: rgb(70,184,218);
+  border-bottom: solid 1px rgb(70,184,218);
+  color: #fff;
+  margin-top: -1px;
+  margin-left: -1px;
+  margin-right: -1px;
+  text-align: center;
+}
+
+.gc text {
+  fill: #003973;
+}
+
+.gc text:hover {
+  cursor: pointer;
+}
+
+.ga text {
+  font-size: 10px;
+}
+
+.gat {
+  font-size: 10px;
+  text-transform: uppercase;
+  fill: #666 !important;
+}
+
+.reset {
+  position: absolute;
+  float: right;
+  top: 25px;
+  right: 145px;
+  cursor: pointer !important;
+  z-index: 1;
+  outline: none !important;
+}
+
+.reset:active {
+  background-color: rgb(70,184,218) !important;
+  color: #fff !important;
+  outline: none !important;
+}
