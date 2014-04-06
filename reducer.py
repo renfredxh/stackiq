@@ -22,15 +22,21 @@ def average_data(data, total):
     return data
 
 def compute_composites(data):
+    # Compute composite intellegence score for a community based on lingustic
+    # analysis
     data['composite_intellegence'] = data['linguistics_data']['min_age'] ** 1.5 + 10 * data['linguistics_data']['reading_level']
+    # Compute composite community score for language based on activity
+    # statistics
 
-    data['composite_community'] = (data['answer_count'] * 10000 + data['view_count'] + data['score'] * 5000) / 1000
+    data['composite_community'] = ((((data['answer_count'] * 1000 + data['view_count'] + 
+        data['score'] * 5000) / 1000) - ((data['percentage_answered'] - 99) *
+            100)) - 9900) * 10
     return data
 
 def post_process(data):
+    data['percentage_answered'] = 100 - (questions_unanswered / float(data['count'])) * 100
     data = average_data(data, data['count'])
     data = compute_composites(data)
-    data['percentage_answered'] = 100 - (questions_unanswered / float(data['count'])) * 100
     return data
 
 current_lang = None
