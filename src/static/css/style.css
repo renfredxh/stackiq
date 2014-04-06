@@ -16,7 +16,7 @@ svg {
   height: 100%;
 }
 
-.dropdown {
+.button-div {
   position: absolute;
   right: 25px;
   top: 25px;
@@ -130,10 +130,6 @@ button:active {
 }
 
 .reset {
-  position: absolute;
-  float: right;
-  top: 25px;
-  right: 145px;
   cursor: pointer !important;
   z-index: 1;
   outline: none !important;
@@ -155,6 +151,7 @@ button:active {
   box-shadow: none !important;
   width: 13px;
   opacity: 0.8;
+  z-index: 1;
 }
 
 .noUi-handle {
@@ -191,4 +188,12 @@ button:active {
   position: absolute;
   top: 25px;
   right: 215px;
+  cursor: pointer !important;
+  z-index: 1 !important;
+  outline: none !important;
+}
+
+h2 {
+  margin-top: 30px;
+  color: rgb(232,107,36);
 }

@@ -26,24 +26,28 @@
 	</head>
 	<body>
     <div class="slider"></div>
-    <button type="button" class="btn btn-info reset" id="reset-btn">Reset</button>
-    <div class="dropdown btn-group">
-      <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
-        Hybrid View <span class="caret"></span>
-      </button>
-      <ul class="dropdown-menu pull-right" role="menu" id="lang-menu">
-        <li><a href="#" tabindex="-1" id="readingl">Reading Level</a></li>
-        <li><a href="#" tabindex="-1" id="communitya">Community Activity</a></li>
-        <li class="divider"></li>
-      </ul>
-    </div>
-    <div class="container slideIn readingLevel">
-      <button type="button" class="btn btn-info cb">Close</button>
+    <div class="button-div">
+      <button type="button" class="btn btn-info reset" id="reset-btn">Reset</button>
+      <div class="dropdown btn-group">
+        <button type="button" class="btn btn-info dropdown-toggle" id="dropdown-btn" data-toggle="dropdown">
+          <span class="title_place">Hybrid View</span> <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu pull-right" role="menu" id="lang-menu">
+          <li><a href="#" tabindex="-1" id="Hybrid View">Hybrid View</a></li>
+          <li class="divider"></li>
+          <li><a href="#" tabindex="-1" id="Reading Level">Reading Level</a></li>
+          <li><a href="#" tabindex="-1" id="Community Activity">Community Activity</a></li>
+          <li class="divider"></li>
+        </ul>
+      </div>
     </div>
     <div class="container" id="lang-info" style="display: none;">
       <div class="row">
           <div class="col-md-10 col-md-offset-1">
               <h2 id="lang-name">Lang</h2>
+              <div id="lang-data-cont">
+
+              </div>
           </div>
       </div>
     </div>
