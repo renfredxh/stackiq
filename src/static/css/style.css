@@ -182,3 +182,13 @@ button:active {
   box-shadow: none !important;
   border: solid 1px #fff;
 }
+
+.slideIn {
+  display: none;
+}
+
+.cb {
+  position: absolute;
+  top: 25px;
+  right: 215px;
+}

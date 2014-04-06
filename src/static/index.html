@@ -32,17 +32,20 @@
         Hybrid View <span class="caret"></span>
       </button>
       <ul class="dropdown-menu pull-right" role="menu" id="lang-menu">
-        <li><a href="#" tabindex="-1">Reading Level</a></li>
-        <li><a href="#" tabindex="-1">Community Activity</a></li>
+        <li><a href="#" tabindex="-1" id="readingl">Reading Level</a></li>
+        <li><a href="#" tabindex="-1" id="communitya">Community Activity</a></li>
         <li class="divider"></li>
       </ul>
     </div>
+    <div class="container slideIn readingLevel">
+      <button type="button" class="btn btn-info cb">Close</button>
+    </div>
     <div class="container" id="lang-info" style="display: none;">
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-                <h2 id="lang-name">Lang</h2>
-            </div>
-        </div>
+      <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+              <h2 id="lang-name">Lang</h2>
+          </div>
+      </div>
     </div>
     <script src="js/jquery.nouislider.min.js"></script>
     <script src="js/tooltip.js"></script>

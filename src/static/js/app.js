@@ -628,4 +628,13 @@ $(document).ready(function() {
             toggleLangInfoMode();
         }
     });
+    $("#readingl").click(function() {
+        $("svg").slideToggle();
+        $(".readingLevel").slideToggle();
+      });
+
+      $("#communitya").click(function() {
+        $("svg").slideToggle();
+        $(".communityActivity").slideToggle();
+      })
 });
