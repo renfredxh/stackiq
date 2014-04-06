@@ -27,8 +27,15 @@ def compute_composites(data):
     data['composite_community'] = (data['answer_count'] * 10000 + data['view_count'] + data['score'] * 5000) / 1000
     return data
 
+def post_process(data):
+    data = average_data(data, data['count'])
+    data = compute_composites(data)
+    data['percentage_answered'] = 100 - (questions_unanswered / float(data['count'])) * 100
+    return data
+
 current_lang = None
 current_count = 0
+questions_unanswered = 0
 word = None
 
 for line in sys.stdin:
@@ -43,17 +50,19 @@ for line in sys.stdin:
     if current_lang == lang:
         current_data = accumulate_data(current_data, data)
         current_data['count'] = current_data.get('count', 0) + 1
+        # Keep track of unanswered questions
+        if data['answer_count'] == 0:
+            questions_unanswered += 1
     else:
         if current_lang:
-            current_data = average_data(current_data, current_data['count'])
-            current_data = compute_composites(current_data)
+            current_data = post_process(current_data)
             # Print the reduced data set
             print("{}\t{}".format(current_lang, json.dumps(current_data)))
+            questions_unanswered = 0
         current_data = data
         current_lang = lang
 
 # do not forget to output the last word if needed!
 if current_lang == lang:
-    current_data = average_data(current_data, current_data['count'])
-    current_data = compute_composites(current_data)
+    current_data = post_process(current_data)
     print("{}\t{}".format(current_lang, json.dumps(current_data)))
