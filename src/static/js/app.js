@@ -632,26 +632,30 @@ function loadPage(lang_name) {
 
 $(document).ready(function() {
     $('#lang-menu a').click(function() {
+        //CASE: FROM INFO TO HYBRID
         if (app.lang_info_mode && $(this).attr("id") == 'Hybrid View') {
           $('svg').slideToggle();
-          $('#lang-data-cont').slideUp();
+          $('#lang-info').slideUp();
           $("#reset-btn").fadeIn();
           $(".slider").fadeIn();
           $("#help-btn").fadeIn();
           $(".title_place").text("Hybrid View");
           toggleLangInfoMode();
         }
+        //CASE: FROM INFO TO INFO
         else if (app.lang_info_mode) {
           lang_name = $(this).attr("id");
           $("#lang-data-cont").fadeOut("fast",function() { loadPage(lang_name) });
           $("#lang-data-cont").fadeIn();
         }
+        //CASE: FROM HYBRID TO HYBRID
         else if ($(".title_place").text() == "Hybrid View" && $(this).attr("id") == "Hybrid View") {}
+        //CASE: FROM HYBRID TO INFO
         else {
           lang_name = $(this).attr('id');
           $('svg').slideToggle();
           loadPage(lang_name);
-          $("#lang-data-cont").slideToggle();
+          $("#lang-info").slideToggle();
           $("#help-btn").fadeOut();
           $("#reset-btn").fadeOut();
           $(".slider").fadeOut();
