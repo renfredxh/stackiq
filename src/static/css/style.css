@@ -1,3 +1,5 @@
+//rgb(232, 107, 36)
+
 .bubble {
 	position: absolute;
 	top: 0px !important;
@@ -8,6 +10,8 @@
 
 svg {
   cursor: ew-resize;
+  width: 100%;
+  height: 100%;
 }
 
 .dropdown {
@@ -47,8 +51,9 @@ svg {
 }
 
 button {
-  color: rgb(70,184,218) !important;
-  background-color: transparent !important;
+  color: rgb(232, 107, 36) !important;
+  background-color: #fff !important;
+  border: solid 1px rgb(232,107,36) !important;
 }
 
 button:hover {
@@ -61,7 +66,7 @@ button:active {
 }
 
 .open button {
-  background-color: rgb(70,184,218) !important;
+  background-color: rgb(232, 107, 36) !important;
   color: #fff !important;
   box-shadow: none !important;
 }
@@ -69,34 +74,34 @@ button:active {
 .dropdown-menu {
   background-color: #fff !important;
   box-shadow: none !important;
-  border: solid 1px rgb(70,184,218) !important;
-  color: rgb(70,184,218) !important;
+  border: solid 1px rgb(232, 107, 36) !important;
+  color: rgb(232, 107, 36) !important;
   margin-top: 3px;
 }
 
 .dropdown-menu li a {
-  color: rgb(70,184,218) !important;
+  color: rgb(232, 107, 36) !important;
 }
 
 .dropdown-menu li a:hover {
   color: #fff !important;
-  background-color: rgb(70,184,218) !important;
+  background-color: rgb(232, 107, 36) !important;
 }
 
 .divider {
-  background-color: rgb(70,184,218) !important;
+  background-color: rgb(232, 107, 36) !important;
 }
 
 .popover {
   background-color: #fff !important;
-  border: solid 1px rgb(70,184,218) !important;
-  color: rgb(70,184,218);
+  border: solid 1px rgb(232, 107, 36) !important;
+  color: rgb(232, 107, 36) !important;
   box-shadow: 0px 1px 0px rgba(0,0,0,0.1);
 }
 
 .popover h3 {
-  background-color: rgb(70,184,218);
-  border-bottom: solid 1px rgb(70,184,218);
+  background-color: rgb(232, 107, 36);
+  border-bottom: solid 1px rgb(232, 107, 36);
   color: #fff;
   margin-top: -1px;
   margin-left: -1px;
@@ -105,7 +110,7 @@ button:active {
 }
 
 .gc text {
-  fill: #003973;
+  fill: #000;
 }
 
 .gc text:hover {
@@ -133,7 +138,45 @@ button:active {
 }
 
 .reset:active {
-  background-color: rgb(70,184,218) !important;
+  background-color: rgb(232, 107, 36) !important;
   color: #fff !important;
   outline: none !important;
+}
+
+.slider {
+  position: absolute;
+  left: 25px;
+  top: 25px;
+  height: 200px;
+  background-color: #fff;
+  border: solid 1px rgb(232,107,36) !important;
+  box-shadow: none !important;
+  width: 13px;
+  opacity: 0.8;
+}
+
+.noUi-handle {
+  background-color: #fff !important;
+  box-shadow: none !important;
+  border: solid 1px rgb(232, 107, 36) !important;
+  width: 20px !important;
+  height: 20px;
+  margin-left: 1px;
+  cursor: pointer;
+}
+
+.noUi-handle::before {
+  background-color: rgb(232, 107, 36) !important;
+  width: 7px !important;
+}
+
+.noUi-handle::after {
+  background-color: rgb(232, 107, 36) !important;
+  width: 7px !important;
+}
+
+.noUi-connect {
+  background-color: rgb(232, 107, 36) !important;
+  box-shadow: none !important;
+  border: solid 1px #fff;
 }

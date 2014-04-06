@@ -369,14 +369,17 @@ var readingLevelsJ = {
 
       function zoomed(d) {
 
-        console.log(d3.event.scale)
+        //console.log(d3.event.scale)
+
+        mx = d3.mouse(this)[0];
+        my = d3.mouse(this)[1];
 
         //ZOOM
         scaleX = d3.scale.linear().domain([minRl, maxRl]).range([50,(width-50)*d3.event.scale]);
         svg.selectAll(".gc").selectAll("circle").attr("cx", function(d) { return scaleX(d.composite_intellegence) + (mx/((maxPop / d.count)*parralaxIntensity)); });
-        svg.selectAll(".gc").selectAll("circle").attr("cy", function(d) { return scaleY(d.composite_community) + (my/((maxPop / d.count)*parralaxIntensity)); });
+        //svg.selectAll(".gc").selectAll("circle").attr("cy", function(d) { return scaleY(d.composite_community) + (my/((maxPop / d.count)*parralaxIntensity)); });
         svg.selectAll(".gc").selectAll("text").attr("x", function(d) { return scaleX(d.composite_intellegence) + (mx/((maxPop / d.count)*parralaxIntensity)); });
-        svg.selectAll(".gc").selectAll("text").attr("y", function(d) { return scaleY(d.composite_community) + (my/((maxPop / d.count)*parralaxIntensity)) + 5; });
+        //svg.selectAll(".gc").selectAll("text").attr("y", function(d) { return scaleY(d.composite_community) + (my/((maxPop / d.count)*parralaxIntensity)) + 5; });
         //console.log(d3.event.translate[0]);
         svg.selectAll(".ax").attr("transform",  "translate(" + d3.event.translate[0] + ", " + height/2 + ")");
         svg.selectAll(".gc").selectAll("circle").attr("transform", "translate(" + d3.event.translate[0] + ")");
@@ -388,20 +391,24 @@ var readingLevelsJ = {
       function reset() {
         zoom.translate([0,0]).scale(1);
 
+        $(".slider").val([25,90]);
+
+        scaleR = d3.scale.linear().domain([minPop,maxPop]).range([25,90]);
+        svg.selectAll("circle").attr("r", function(d) { return scaleR(d.count); })
+
         scaleX = d3.scale.linear().domain([minRl,maxRl]).range([50,width-50]);
 
         svg.select(".ax").transition().attr("transform", "translate(0," + height/2 + ")");
-        var scaleX = d3.scale.linear().domain([minRl,maxRl]).range([50,width-50]);
         xAxis = d3.svg.axis().scale(scaleX).ticks(10);
         svg.select(".ax").call(xAxis);
 
         svg.selectAll(".gc").selectAll("circle").transition().attr("transform", "translate(0,0)");
         svg.selectAll(".gc").selectAll("text").transition().attr("transform", "translate(0,0)");
 
-        svg.selectAll(".gc").selectAll("circle").attr("cx", function(d) { return scaleX(d.composite_intellegence)});
-        svg.selectAll(".gc").selectAll("circle").attr("cy", function(d) { return scaleY(d.composite_community)});
-        svg.selectAll(".gc").selectAll("text").attr("x", function(d) { return scaleX(d.composite_intellegence)});
-        svg.selectAll(".gc").selectAll("text").attr("y", function(d) { return scaleY(d.composite_community)});
+        svg.selectAll(".gc").selectAll("circle").attr("cx", function(d) { return scaleX(d.composite_intellegence) + ((width-125)/((maxPop / d.count)*parralaxIntensity)); });
+        svg.selectAll(".gc").selectAll("circle").attr("cy", function(d) { return scaleY(d.composite_community) + ((height-25)/((maxPop / d.count)*parralaxIntensity)); });
+        svg.selectAll(".gc").selectAll("text").attr("x", function(d) { return scaleX(d.composite_intellegence) + ((width-125)/((maxPop / d.count)*parralaxIntensity)); });
+        svg.selectAll(".gc").selectAll("text").attr("y", function(d) { return scaleY(d.composite_community) + ((height-25)/((maxPop / d.count)*parralaxIntensity)) + 5; });
 
       }
 
@@ -439,9 +446,16 @@ var readingLevelsJ = {
       }
 
       var scaleX = d3.scale.linear().domain([minRl,maxRl]).range([50,width-50]);
-      var scaleY = d3.scale.linear().domain([minAct,maxAct]).range([50,height-50]);
-      var scaleC = d3.scale.linear().domain([minPop,maxPop]).range(["#D4E9FF","#257ED9"])
-      var scaleR = d3.scale.linear().domain([minPop,maxPop]).range([30,80]);
+      var scaleY = d3.scale.linear().domain([minAct,maxAct]).range([height-50,50]);
+      var scaleC = d3.scale.linear().domain([minPop,maxPop]).range(["#E86B24","#E85400"])
+      var scaleR = d3.scale.linear().domain([minPop,maxPop]).range([25,90]);
+
+      $(".slider").on('slide', function() {
+        scaleR = d3.scale.linear().domain([minPop,maxPop]).range([$(".slider").val()[0],$(".slider").val()[1]]);
+        svg.selectAll("circle").attr("r", function(d) { return scaleR(d.count); })
+      })
+
+      var rMin, rMax;
 
       var color = d3.scale.category10();
 
@@ -475,7 +489,7 @@ var readingLevelsJ = {
           .enter().append("g")
           .attr("class", "gc")
           .append("circle")
-          .attr("r", function(d) { console.log(d); d.radius = scaleR(d.count); return scaleR(d.count); })
+          .attr("r", function(d) { /*console.log(d);*/ d.radius = scaleR(d.count); return scaleR(d.count); })
           .style("fill", function(d){ return scaleC(d.count); })
           .style("stroke", "rgba(0,0,128,0.5)")
 
@@ -500,8 +514,8 @@ var readingLevelsJ = {
             div.append("p").text("Popularity: " + Math.round(d.count))
             div.append("p").text("Community Involvement: " + Math.round(d.composite_community))
             var posX = width - 280;
-            if (d.composite_intellegence > 9) { posX = 50; }
-            else if (d.composite_intellegence < 9) { posX = width - 280; }
+            if (d.composite_intellegence > (minRl+((maxRl - minRl)/2))) { posX = 50; }
+            else if (d.composite_intellegence < (minRl+((maxRl-minRl)/2))) { posX = width - 280; }
             return {
               type: "popover",
               title: d.lang,
@@ -575,5 +589,17 @@ var readingLevelsJ = {
 
       d3.select(".dropdown-menu").selectAll("li").data(languages).enter().append("li").append("a").attr("tabindex", "-1").attr("href", "#").text(function(d) { return d; })
 
+      //Set things up
+      $(".slider").noUiSlider({
+        start: [25,90],
+        margin: 1,
+        orientation: 'vertical',
+        direction: "rtl",
+        connect: true,
+        range: {
+          'min': 1,
+          'max': 120
+        }
+      });
       $(".reset").click(reset)
       $(".dropdown-menu").dropdown();
