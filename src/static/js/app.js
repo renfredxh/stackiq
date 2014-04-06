@@ -592,30 +592,26 @@ var readingLevelsJ = {
 
       d3.select(".dropdown-menu").selectAll("li").data(languages).enter().append("li").append("a").attr("id", function(d) { return d; }).attr("tabindex", "-1").attr("href", "#").text(function(d) { return d; });
 
-      $(".reset").click(reset);
-      $(".dropdown-menu").dropdown();
 
+  //Set things up
+  $(".slider").noUiSlider({
+    start: [25,90],
+    margin: 1,
+    orientation: 'vertical',
+    direction: "rtl",
+    connect: true,
+    range: {
+      'min': 1,
+      'max': 120
+    }
+  });
+  $(".reset").click(reset);
+  $(".dropdown-menu").dropdown();
 
 function toggleLangInfoMode() {
     app.lang_info_mode = !app.lang_info_mode;
 }
 
-<<<<<<< HEAD
-      //Set things up
-      $(".slider").noUiSlider({
-        start: [25,90],
-        margin: 1,
-        orientation: 'vertical',
-        direction: "rtl",
-        connect: true,
-        range: {
-          'min': 1,
-          'max': 120
-        }
-      });
-      $(".reset").click(reset)
-      $(".dropdown-menu").dropdown();
-=======
 $(document).ready(function() {
     $('#lang-menu a').click(function() {
         lang_name = $(this).attr('id');
@@ -633,4 +629,3 @@ $(document).ready(function() {
         }
     });
 });
->>>>>>> Add lang info section
