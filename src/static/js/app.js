@@ -617,29 +617,31 @@ function loadPage(lang_name) {
   lang_data = readingLevelsJ[lang_name];
   $('#lang-name').text(lang_name);
   $("#dropdown-btn .title_place").text(lang_name);
-
-
 }
 
 $(document).ready(function() {
     $('#lang-menu a').click(function() {
         if (app.lang_info_mode && $(this).attr("id") == 'Hybrid View') {
           $('svg').slideToggle();
-          $('#lang-info').slideToggle();
+          $('#lang-data-cont').slideUp();
           $("#reset-btn").fadeIn();
           $(".slider").fadeIn();
+          $("#help-btn").fadeIn();
+          $(".title_place").text("Hybrid View");
           toggleLangInfoMode();
         }
         else if (app.lang_info_mode) {
           lang_name = $(this).attr("id");
-          $("#lang-data-cont").fadeOut("fast",function() { loadPage(lang_name) });
+          $("#lang-data-cont").fadeOut("fast2",function() { loadPage(lang_name) });
           $("#lang-data-cont").fadeIn();
         }
+        else if ($(".title_place").text() == "Hybrid View" && $(this).attr("id") == "Hybrid View") {}
         else {
           lang_name = $(this).attr('id');
           $('svg').slideToggle();
           loadPage(lang_name);
-          $("#lang-info").slideToggle();
+          $("#lang-data-cont").slideToggle();
+          $("#help-btn").fadeOut();
           $("#reset-btn").fadeOut();
           $(".slider").fadeOut();
           toggleLangInfoMode();

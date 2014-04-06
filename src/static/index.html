@@ -27,6 +27,7 @@
 	<body>
     <div class="slider"></div>
     <div class="button-div">
+      <button type="button" class="btn btn-info help" id="help-btn" data-toggle="modal" data-target="#helpModal">Help</button>
       <button type="button" class="btn btn-info reset" id="reset-btn">Reset</button>
       <div class="dropdown btn-group">
         <button type="button" class="btn btn-info dropdown-toggle" id="dropdown-btn" data-toggle="dropdown">
@@ -47,6 +48,36 @@
             <div class="col-md-10 col-md-offset-1">
                 <h2 id="lang-name">Lang</h2>
             </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="helpModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel">StackIQ<h6>By John Moss & Renfred Harper</h6></h4>
+          </div>
+          <div class="modal-body">
+            <h5>Axis</h5>
+            <p>
+              Communities are organized by computed reading level on the <strong>x axis.</strong><br>
+              Communities are organized by computed activity level on the <strong>y axis.</strong><br>
+              Community size is denoted by bubble <strong>radius.</strong>
+            </p>
+            <h5>Zoom & Pan</h5>
+            <p>
+              The data can be zoomed and panned with the <strong>scroll wheel and the mouse</strong>.  Scroll in/out to zoom, click and drag to pan through the data.
+            </p>
+            <h5>Slider</h5>
+            <p>
+            Use the slider on the left to manipulate the <strong>minimum and maximum radius of the bubbles</strong>.  Sliding the lower handle affects the minimum, sliding the upper affects the maximum.
+            </p>
+            <h5>Dropdown</h5>
+            <p>
+            Choose from any of the options in the drop down menu on the right to see <strong>more in-depth information.</strong>
+            </p>
+          </div>
         </div>
       </div>
     </div>

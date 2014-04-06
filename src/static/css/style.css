@@ -1,5 +1,16 @@
+//SO MUCH REDUNDANT CSS
+
 h1, h2, h3, h4, h5 {
-    font-family: Trebuchet MS,Liberation Sans,DejaVu Sans,sans-serif;
+    font-family: "Helvetica Neue", "Helvetica", "Aria", sans-serif;
+}
+
+button {
+  outline: none !important;
+}
+
+button:active {
+  background-color: rgb(232, 107, 36) !important;
+  color: #fff !important;
 }
 
 .bubble {
@@ -197,3 +208,97 @@ h2 {
   margin-top: 30px;
   color: rgb(232,107,36);
 }
+
+#help-btn {
+  outline: none;
+}
+
+#help-btn:active {
+  background-color: rgb(232, 107, 36) !important;
+  color: #fff !important;
+}
+
+.modal-header .close {
+  border: none !important;
+  outline: none !important;
+  opacity: 1;
+  color: #fff !important;
+  background-color: rgb(232, 107, 36) !important;
+}
+
+.modal-header .close:hover {
+  background-color: rgb(232, 107, 36);
+}
+
+.modal-header .close:active {
+  background-color: transparent !important;
+  color: #fff !important;
+}
+
+.modal-header {
+  background-color: rgb(232, 107, 36) !important;
+  color: #fff;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+  margin-bottom: 0px;
+}
+
+.modal-content {
+  padding-top: 0;
+  border-radius: 4px;
+  border: solid 1px rgb(232, 107, 36) !important;
+  box-shadow: none !important;
+  color: rgb(232, 107, 36) !important;
+}
+
+.modal-body {
+  padding-top: 30px !important;
+  padding-left: 40px !important;
+  padding-right: 50px !important;
+}
+
+.modal-footer {
+  border-top: solid 1px rgb(232, 107, 36) !important;
+  height: 60px !important;
+  padding-top: 12px;
+}
+
+.modal-footer button {
+  background-color: rgb(232, 107, 36) !important;
+  color: #fff !important;
+}
+
+.modal-backdrop {
+  opacity: 0.2 !important;
+}
+
+h5 {
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: none;
+}
+
+h4 {
+  margin-top: 4px !important;
+  font-weight: 600;
+  font-size: 22px;
+  margin-bottom: none;
+}
+
+h6 {
+  margin-top: 0;
+  margin-bottom: none;
+}
+
+strong {
+}
+
+.modal-body p {
+  border-top: solid 1px rgb(232, 107, 36);
+  margin-bottom: 50px !important;
+  padding-top: 10px;
+  margin-top: -7px !important;
+}
+
