@@ -18,7 +18,7 @@ def average_data(data, total):
         if isinstance(data[k], dict):
             data[k] = average_data(data[k], total)
         else:
-            data[k] = data[k]/total
+            data[k] = data[k]/float(total)
     return data
 
 def compute_composites(data):
