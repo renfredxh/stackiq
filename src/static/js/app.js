@@ -632,7 +632,8 @@ $(document).ready(function() {
         }
         else if (app.lang_info_mode) {
           lang_name = $(this).attr("id");
-          loadPage(lang_name);
+          $("#lang-data-cont").fadeOut("fast",function() { loadPage(lang_name) });
+          $("#lang-data-cont").fadeIn();
         }
         else {
           lang_name = $(this).attr('id');
