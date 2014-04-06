@@ -1,7 +1,7 @@
 var app = app || {};
 app.lang_info_mode = false;
 
-var readingLevels2 = [
+/*var readingLevels2 = [
       {
         "lang" : "C#",
         "rl" : "8",
@@ -98,263 +98,297 @@ var readingLevels2 = [
         "pop" : "1000",
         "act" : "1000"
       }];
+*/
 
 var readingLevelsJ = {
-  "c": {
-    "lang" : "C",
-    "count": 3225, 
-    "view_count": 8221, 
-    "scores_to_views": 0.002534662314520269, 
-    "answer_count": 5, 
-    "composite_community": 118, 
-    "composite_intellegence": 119.54814041670357, 
-    "score": 12, 
-    "linguistics_data": {
-      "word_count": 99, 
-      "reading_level": 7.797892103505052, 
-      "min_age": 12
-    }, 
-    "favorite_count": 6
-  }, 
-  "javascript": {
+  "Javascript": {
     "lang" : "Javascript",
-    "count": 7650, 
-    "view_count": 15073, 
-    "scores_to_views": 0.00172323187812757, 
-    "answer_count": 4, 
-    "composite_community": 145, 
-    "composite_intellegence": 119.38393205260176, 
-    "score": 18, 
+    "count": 82916, 
+    "view_count": 4397, 
+    "scores_to_views": 0, 
+    "composite_community": 258.7984982926355, 
     "linguistics_data": {
-      "word_count": 96, 
-      "reading_level": 7.7814712670948705, 
+      "word_count": 88, 
+      "reading_level": 7.441810932887826, 
       "min_age": 12
     }, 
-    "favorite_count": 7
-  }, 
-  "java": {
-    "lang" : "Java",
-    "count": 11216, 
-    "view_count": 10444, 
-    "scores_to_views": 0.0019592529674519747, 
-    "answer_count": 4, 
-    "composite_community": 105, 
-    "composite_intellegence": 124.2714543030111, 
-    "score": 11, 
-    "linguistics_data": {
-      "word_count": 102, 
-      "reading_level": 8.270223492135804, 
-      "min_age": 12
-    }, 
-    "favorite_count": 4
-  }, 
-  "scala": {
-    "lang" : "Scala",
-    "count": 94, 
-    "view_count": 5836, 
-    "scores_to_views": 0.004561952105656086, 
-    "answer_count": 4, 
-    "composite_community": 135, 
-    "composite_intellegence": 131.04334366651534, 
-    "score": 18, 
-    "linguistics_data": {
-      "word_count": 93, 
-      "reading_level": 8.417117708548346, 
-      "min_age": 13
-    }, 
-    "favorite_count": 7
-  }, 
-  "c#": {
-    "lang" : "C#",
-    "count": 23394, 
-    "view_count": 6958, 
-    "scores_to_views": 0.0021406659787143807, 
-    "answer_count": 4, 
-    "composite_community": 91, 
-    "composite_intellegence": 123.31297313285756, 
-    "score": 9, 
-    "linguistics_data": {
-      "word_count": 102, 
-      "reading_level": 8.174375375120452, 
-      "min_age": 12
-    }, 
-    "favorite_count": 3
-  }, 
-  "delphi": {
-    "lang" : "Delphi",
-    "count": 1432, 
-    "view_count": 2959, 
-    "scores_to_views": 0.00249317314887982, 
-    "answer_count": 4, 
-    "composite_community": 62, 
-    "composite_intellegence": 122.7889219659405, 
+    "composite_intellegence": 115.98732871053132, 
+    "answer_count": 2, 
+    "percentage_answered": 0.0012015017073612132, 
     "score": 4, 
-    "linguistics_data": {
-      "word_count": 106, 
-      "reading_level": 8.121970258428744, 
-      "min_age": 12
-    }, 
-    "favorite_count": 2
+    "favorite_count": 1
   }, 
-  ".net": {
-    "lang" : ".NET",
-    "count": 8536, 
-    "view_count": 4098, 
-    "scores_to_views": 0.002875171635921586, 
-    "answer_count": 3, 
-    "composite_community": 64, 
-    "composite_intellegence": 132.91993380295503, 
-    "score": 6, 
-    "linguistics_data": {
-      "word_count": 107, 
-      "reading_level": 8.604776722192318, 
-      "min_age": 13
-    }, 
-    "favorite_count": 2
-  }, 
-  "c++": {
-    "lang" : "C++",
-    "count": 6915, 
-    "view_count": 6768, 
-    "scores_to_views": 0.0023467843311853255, 
-    "answer_count": 4, 
-    "composite_community": 91, 
-    "composite_intellegence": 121.67075549070994, 
-    "score": 9, 
-    "linguistics_data": {
-      "word_count": 103, 
-      "reading_level": 8.010153610905688, 
-      "min_age": 12
-    }, 
-    "favorite_count": 4
-  }, 
-  "perl": {
-    "lang" : "Perl",
-    "count": 1214, 
-    "view_count": 5423, 
-    "scores_to_views": 0.0038150455497005173, 
-    "answer_count": 4, 
-    "composite_community": 80, 
-    "composite_intellegence": 117.6810831243357, 
-    "score": 7, 
-    "linguistics_data": {
-      "word_count": 101, 
-      "reading_level": 7.611186374268264, 
-      "min_age": 12
-    }, 
-    "favorite_count": 2
-  }, 
-  "lisp": {
-    "lang" : "Lisp",
-    "count": 209, 
-    "view_count": 4321, 
-    "scores_to_views": 0.005804286255235193, 
-    "answer_count": 6, 
-    "composite_community": 149, 
-    "composite_intellegence": 123.77599530876341, 
-    "score": 17, 
-    "linguistics_data": {
-      "word_count": 101, 
-      "reading_level": 8.220677592711036, 
-      "min_age": 12
-    }, 
-    "favorite_count": 7
-  }, 
-  "objective-c": {
-    "lang" : "Objective-C",
-    "count": 1871, 
-    "view_count": 10738, 
-    "scores_to_views": 0.001689857485742474, 
-    "answer_count": 3, 
-    "composite_community": 110, 
-    "composite_intellegence": 123.66286258467484, 
-    "score": 14, 
+  "C": {
+    "lang" : "C",
+    "count": 30157, 
+    "view_count": 2934, 
+    "scores_to_views": 0, 
+    "composite_community": 246.69006794058078, 
     "linguistics_data": {
       "word_count": 91, 
-      "reading_level": 8.209364320302178, 
+      "reading_level": 7.500599906163235, 
       "min_age": 12
     }, 
-    "favorite_count": 9
+    "composite_intellegence": 116.57521844328541, 
+    "answer_count": 3, 
+    "percentage_answered": 0.0033099320594276215, 
+    "score": 4, 
+    "favorite_count": 1
   }, 
-  "haskell": {
-    "lang" : "Haskell",
-    "count": 207, 
-    "view_count": 3302, 
-    "scores_to_views": 0.005900362724483764, 
-    "answer_count": 4, 
-    "composite_community": 118, 
-    "composite_intellegence": 131.1099120463369, 
-    "score": 15, 
-    "linguistics_data": {
-      "word_count": 103, 
-      "reading_level": 8.423774546530504, 
-      "min_age": 13
-    }, 
-    "favorite_count": 6
-  }, 
-  "html/css": {
-    "lang" : "HTML/CSS",
-    "count": 3795, 
-    "view_count": 13661, 
-    "scores_to_views": 0.001953329133703881, 
-    "answer_count": 4, 
-    "composite_community": 118, 
-    "composite_intellegence": 108.90689424604223, 
-    "score": 13, 
+  "Java": {
+    "lang" : "Java",
+    "count": 109563, 
+    "view_count": 4061, 
+    "scores_to_views": 0, 
+    "composite_community": 259.0904903662704, 
     "linguistics_data": {
       "word_count": 97, 
-      "reading_level": 7.242402155213283, 
-      "min_age": 11
-    }, 
-    "favorite_count": 5
-  }, 
-  "python": {
-    "lang" : "Python",
-    "count": 6104, 
-    "view_count": 10317, 
-    "scores_to_views": 0.002760325801227443, 
-    "answer_count": 4, 
-    "composite_community": 135, 
-    "composite_intellegence": 120.74531100439498, 
-    "score": 17, 
-    "linguistics_data": {
-      "word_count": 98, 
-      "reading_level": 7.917609162274192, 
+      "reading_level": 8.152434768559555, 
       "min_age": 12
     }, 
-    "favorite_count": 8
+    "composite_intellegence": 123.09356706724861, 
+    "answer_count": 2, 
+    "percentage_answered": 0.0009095096337223825, 
+    "score": 4, 
+    "favorite_count": 1
   }, 
-  "php": {
-    "lang" : "PHP",
-    "count": 6937, 
-    "view_count": 7113, 
-    "scores_to_views": 0.0017600490272249637, 
-    "answer_count": 4, 
-    "composite_community": 82, 
-    "composite_intellegence": 118.53558747160423, 
+  "Scala": {
+    "lang" : "Scala",
+    "count": 3403, 
+    "view_count": 2001, 
+    "scores_to_views": 0, 
+    "composite_community": 360.6314345201463, 
+    "linguistics_data": {
+      "word_count": 91, 
+      "reading_level": 8.307484165919178, 
+      "min_age": 12
+    }, 
+    "composite_intellegence": 124.64406104084483, 
+    "answer_count": 2, 
+    "percentage_answered": 0.029368565479854815, 
     "score": 7, 
+    "favorite_count": 2
+  }, 
+  "C#": {
+    "lang" : "C#",
+    "count": 167623, 
+    "view_count": 2882, 
+    "scores_to_views": 0, 
+    "composite_community": 189.40547672358662, 
     "linguistics_data": {
-      "word_count": 100, 
-      "reading_level": 7.696636808995118, 
+      "word_count": 99, 
+      "reading_level": 8.121859764992005, 
       "min_age": 12
     }, 
-    "favorite_count": 3
+    "composite_intellegence": 122.7878170315731, 
+    "answer_count": 2, 
+    "percentage_answered": 0.0005945232764126626, 
+    "score": 3, 
+    "favorite_count": 1
   }, 
-  "ruby": {
-    "lang" : "Ruby",
-    "count": 2427, 
-    "view_count": 5577, 
-    "scores_to_views": 0.0030439568212386053, 
+  "Delphi": {
+    "lang" : "Delphi",
+    "count": 8642, 
+    "view_count": 1757, 
+    "scores_to_views": 0, 
+    "composite_community": 168.4647567321008, 
+    "linguistics_data": {
+      "word_count": 109, 
+      "reading_level": 8.077034150137806, 
+      "min_age": 12
+    }, 
+    "composite_intellegence": 122.33956088303111, 
+    "answer_count": 2, 
+    "percentage_answered": 0.011535243267903486, 
+    "score": 3, 
+    "favorite_count": 1
+  }, 
+  ".NET": {
+    "lang" : ".NET",
+    "count": 36991, 
+    "view_count": 2081, 
+    "scores_to_views": 0, 
+    "composite_community": 187.3074557952168, 
+    "linguistics_data": {
+      "word_count": 109, 
+      "reading_level": 8.59104650479119, 
+      "min_age": 13
+    }, 
+    "composite_intellegence": 132.78263162894376, 
+    "answer_count": 2, 
+    "percentage_answered": 0.002692544204780353, 
+    "score": 3, 
+    "favorite_count": 1
+  }, 
+  "C++": {
+    "lang" : "C++",
+    "count": 56696, 
+    "view_count": 2506, 
+    "scores_to_views": 0, 
+    "composite_community": 248.24003362709846, 
+    "linguistics_data": {
+      "word_count": 101, 
+      "reading_level": 7.993457036836209, 
+      "min_age": 12
+    }, 
+    "composite_intellegence": 121.50378975001514, 
     "answer_count": 3, 
-    "composite_community": 85, 
-    "composite_intellegence": 119.14919580662851, 
-    "score": 10, 
+    "percentage_answered": 0.0017599663729046056, 
+    "score": 4, 
+    "favorite_count": 1
+  }, 
+  "Perl": {
+    "lang" : "Perl",
+    "count": 9509, 
+    "view_count": 2183, 
+    "scores_to_views": 0, 
+    "composite_community": 179.50576580698907, 
+    "linguistics_data": {
+      "word_count": 96, 
+      "reading_level": 7.460720317220851, 
+      "min_age": 12
+    }, 
+    "composite_intellegence": 116.17642255386156, 
+    "answer_count": 2, 
+    "percentage_answered": 0.010494234193019657, 
+    "score": 3, 
+    "favorite_count": 0
+  }, 
+  "Lisp": {
+    "lang" : "Lisp",
+    "count": 1149, 
+    "view_count": 1775, 
+    "scores_to_views": 0, 
+    "composite_community": 353.11929016868817, 
+    "linguistics_data": {
+      "word_count": 93, 
+      "reading_level": 7.866123727222361, 
+      "min_age": 12
+    }, 
+    "composite_intellegence": 120.23045665387667, 
+    "answer_count": 3, 
+    "percentage_answered": 0.08688070983130598, 
+    "score": 8, 
+    "favorite_count": 2
+  }, 
+  "Objective-C": {
+    "lang" : "Objective-C",
+    "count": 35788, 
+    "view_count": 2701, 
+    "scores_to_views": 0, 
+    "composite_community": 187.21927468028298, 
     "linguistics_data": {
       "word_count": 90, 
-      "reading_level": 7.757997642497545, 
+      "reading_level": 8.083094822652406, 
       "min_age": 12
     }, 
-    "favorite_count": 4
+    "composite_intellegence": 122.40016760817711, 
+    "answer_count": 2, 
+    "percentage_answered": 0.00278072531972337, 
+    "score": 3, 
+    "favorite_count": 1
+  }, 
+  "Haskell": {
+    "lang" : "Haskell",
+    "count": 2797, 
+    "view_count": 1415, 
+    "scores_to_views": 0, 
+    "composite_community": 394.2857553722388, 
+    "linguistics_data": {
+      "word_count": 105, 
+      "reading_level": 8.22697438009871, 
+      "min_age": 12
+    }, 
+    "composite_intellegence": 123.83896318264016, 
+    "answer_count": 2, 
+    "percentage_answered": 0.035714244627748026, 
+    "score": 8, 
+    "favorite_count": 2
+  }, 
+  "HTML/CSS": {
+    "lang" : "HTML/CSS",
+    "count": 39579, 
+    "view_count": 4749, 
+    "scores_to_views": 0, 
+    "composite_community": 257.48138720149655, 
+    "linguistics_data": {
+      "word_count": 87, 
+      "reading_level": 6.918629583319638, 
+      "min_age": 11
+    }, 
+    "composite_intellegence": 105.66916852710578, 
+    "answer_count": 2, 
+    "percentage_answered": 0.002518612798501571, 
+    "score": 4, 
+    "favorite_count": 1
+  }, 
+  "Python": {
+    "lang" : "Python",
+    "count": 56049, 
+    "view_count": 3346, 
+    "scores_to_views": 0, 
+    "composite_community": 298.21992134746324, 
+    "linguistics_data": {
+      "word_count": 96, 
+      "reading_level": 7.779458136628454, 
+      "min_age": 12
+    }, 
+    "composite_intellegence": 119.3638007479376, 
+    "answer_count": 2, 
+    "percentage_answered": 0.0017800786525465496, 
+    "score": 5, 
+    "favorite_count": 2
+  }, 
+  "PHP": {
+    "lang" : "PHP",
+    "count": 105432, 
+    "view_count": 2271, 
+    "scores_to_views": 0, 
+    "composite_community": 139.05450807069428, 
+    "linguistics_data": {
+      "word_count": 92, 
+      "reading_level": 7.47289978670425, 
+      "min_age": 12
+    }, 
+    "composite_intellegence": 116.29821724869555, 
+    "answer_count": 2, 
+    "percentage_answered": 0.0009454919293139971, 
+    "score": 2, 
+    "favorite_count": 0
+  }, 
+  "Ruby": {
+    "lang" : "Ruby",
+    "count": 21133, 
+    "view_count": 2450, 
+    "scores_to_views": 0, 
+    "composite_community": 235.27791630041975, 
+    "linguistics_data": {
+      "word_count": 87, 
+      "reading_level": 7.586603529654306, 
+      "min_age": 12
+    }, 
+    "composite_intellegence": 117.43525467819612, 
+    "answer_count": 2, 
+    "percentage_answered": 0.004722083699581801, 
+    "score": 4, 
+    "favorite_count": 1
+  },
+  "cooking": {
+    "lang" : "Cooking",
+    "count": 34034,
+    "composite_intellegence": 119.403284623504,
+    "composite_community": 265,
+    "view_count": 0, 
+    "scores_to_views": 0, 
+    "linguistics_data": {
+      "word_count": 115, 
+      "reading_level": 7.783406524185096, 
+      "min_age": 12
+    }, 
+    "answer_count": 0, 
+    "percentage_answered": 0, 
+    "score": 0, 
+    "favorite_count": 0
   }
 }
       
@@ -394,12 +428,12 @@ var readingLevelsJ = {
       function reset() {
         zoom.translate([0,0]).scale(1);
 
-        $(".slider").val([25,90]);
+        $(".slider").val([15,90]);
 
-        scaleR = d3.scale.linear().domain([minPop,maxPop]).range([25,90]);
+        scaleR = d3.scale.linear().domain([minPop,maxPop]).range([15,90]);
         svg.selectAll("circle").attr("r", function(d) { return scaleR(d.count); })
 
-        scaleX = d3.scale.linear().domain([minRl,maxRl]).range([50,width-50]);
+        scaleX = d3.scale.linear().domain([minRl,maxRl]).range([70,width-70]);
 
         svg.select(".ax").transition().attr("transform", "translate(0," + height/2 + ")");
         xAxis = d3.svg.axis().scale(scaleX).ticks(10);
@@ -448,10 +482,10 @@ var readingLevelsJ = {
         maxAct = Math.max(maxAct, readingLevels[x].composite_community);
       }
 
-      var scaleX = d3.scale.linear().domain([minRl,maxRl]).range([50,width-50]);
-      var scaleY = d3.scale.linear().domain([minAct,maxAct]).range([height-50,50]);
+      var scaleX = d3.scale.linear().domain([minRl,maxRl]).range([70,width-70]);
+      var scaleY = d3.scale.linear().domain([minAct,maxAct]).range([height-70,70]);
       var scaleC = d3.scale.linear().domain([minPop,maxPop]).range(["#E86B24","#E85400"])
-      var scaleR = d3.scale.linear().domain([minPop,maxPop]).range([25,90]);
+      var scaleR = d3.scale.linear().domain([minPop,maxPop]).range([15,90]);
 
       $(".slider").on('slide', function() {
         scaleR = d3.scale.linear().domain([minPop,maxPop]).range([$(".slider").val()[0],$(".slider").val()[1]]);
@@ -473,6 +507,7 @@ var readingLevelsJ = {
       force.start();
 
       var svg = d3.select("body").append("svg")
+          .attr("id", "svg_main")
           .attr("width", width)
           .attr("height", height)
           .attr("class", "bubble")
@@ -493,7 +528,14 @@ var readingLevelsJ = {
           .attr("class", "gc")
           .append("circle")
           .attr("r", function(d) { /*console.log(d);*/ d.radius = scaleR(d.count); return scaleR(d.count); })
-          .style("fill", function(d){ return scaleC(d.count); })
+          .style("fill", function(d){ 
+            if (d.lang == "Cooking") {
+              return "#3CB5DE";
+            }
+            else {
+              return scaleC(d.count); 
+            }
+          })
           .style("stroke", "rgba(0,0,128,0.5)")
 
       svg.selectAll(".gc")
@@ -594,13 +636,13 @@ var readingLevelsJ = {
 
   svg.selectAll('circle').on('click', function(d) {
     lang_name = d.lang;
-    $('svg').slideToggle();
+    $('#svg_main').slideToggle();
     loadPage(lang_name);
     $("#lang-info").slideToggle();
     $("#help-btn").fadeOut();
     $("#reset-btn").fadeOut();
     $(".slider").fadeOut();
-    console.log($("#lang-name"))
+    //console.log($("#lang-name"))
     toggleLangInfoMode();
   });
 
@@ -628,13 +670,22 @@ function loadPage(lang_name) {
   $("#lang-name").text(lang_name);
   lang_data = readingLevelsJ[lang_name];
   $("#dropdown-btn .title_place").text(lang_name);
+
+  $(".drep").each(function()  {
+    $(this).text(lang_data[$(this).attr("alt")])
+  });
+
+  $(".drup").each(function()  {
+    $(this).text(lang_data["linguistics_data"][$(this).attr("alt")])
+  });
+
 }
 
 $(document).ready(function() {
     $('#lang-menu a').click(function() {
         //CASE: FROM INFO TO HYBRID
         if (app.lang_info_mode && $(this).attr("id") == 'Hybrid View') {
-          $('svg').slideToggle();
+          $('#svg_main').slideToggle();
           $('#lang-info').slideUp();
           $("#reset-btn").fadeIn();
           $(".slider").fadeIn();
@@ -653,7 +704,7 @@ $(document).ready(function() {
         //CASE: FROM HYBRID TO INFO
         else {
           lang_name = $(this).attr('id');
-          $('svg').slideToggle();
+          $('#svg_main').slideToggle();
           loadPage(lang_name);
           $("#lang-info").slideToggle();
           $("#help-btn").fadeOut();
@@ -663,3 +714,150 @@ $(document).ready(function() {
         }
     });
 });
+
+
+
+/////////////////
+//SVG #2
+/////////////////
+
+var svg2 = d3.select("#svg_place")
+            .append('svg')
+            .attr("id", "svg2")
+            .attr("width", width)
+            .attr("height", 220)
+
+var scaleX2 = d3.scale.linear().domain([0,1]).range([0,width]);
+var scaleC2 = d3.scale.linear().domain([0,10]).range(["#E8C1AC","#E8712E"]);
+
+function parseKey(k) {
+  var big = d3.entries(readingLevels);
+  var rec = [];
+  var total = 0;
+
+  $.each(readingLevels, function(index, value) {
+    //rec.lang = value.lang;
+    var lang = value[lang];
+    rec.push({"lang": value["lang"], "v": value[k]});
+    total += value[k];
+  });
+
+  rec.push({ "lang": "total", "v": total });
+
+  return rec;
+}
+
+function parseKeyL(k) {
+  var big = d3.entries(readingLevels);
+  var rec = [];
+  var total = 0;
+
+  $.each(readingLevels, function(index, value) {
+    //rec.lang = value.lang;
+    var lang = value[lang];
+    rec.push({"lang": value["lang"], "v": value.linguistics_data[k]});
+    total += value.linguistics_data[k];
+  });
+
+  rec.push({ "lang": "total", "v": total });
+
+  return rec;
+}
+
+var dmin, dmax;
+
+Array.prototype.sortByProp = function(p){
+ return this.sort(function(a,b){
+  return (a[p] > b[p]) ? 1 : (a[p] < b[p]) ? -1 : 0;
+ });
+}
+
+$(".dg").click(function() {
+
+  svg2.selectAll(".bgg").remove();
+  var arr;
+  var key = $(this).attr("alt");
+
+  if ( key == "reading_level" || key == "word_count" || key == "min_age" ) {
+    arr = parseKeyL(key);
+  }
+  else {
+    arr = parseKey(key);
+  }
+
+  arr.sortByProp("v");
+  console.log(arr);
+
+  dmin = arr[0].v;
+  dmax = arr[0].v;
+
+  for (x = 0; x < arr.length-1; x++) {
+        dmin = Math.min(dmin, arr[x].v);
+        dmax = Math.max(dmax, arr[x].v);
+  }
+
+  console.log(dmin)
+  console.log(dmax)
+
+  var scaleC2 = d3.scale.linear().domain([dmin,dmax]).range(["#E8D9D1","#E86317"]);
+
+  var total = arr.pop();
+  var inc = 0;
+
+  svg2.selectAll(".r2")
+      .data(arr)
+      .enter()
+      .append("g")
+      .attr("class", "bgg")
+      .append("rect")
+      .attr("class", "r2")
+      .attr("height", "110")
+      .attr("y","130")
+      .attr("x", function(d) {
+        var x = inc;
+        inc += (scaleX2(d.v/total.v));
+
+        d.x = x;
+        return x;
+      })
+      .attr("width", function(d) {
+
+        d.width = scaleX2(d.v/total.v)
+        return d.width;
+      })
+      .attr("fill", function(d) {
+        return scaleC2(d.v);
+      })
+      .on("mouseover", function(d) {
+        d3.select(this).transition().attr("y","100").attr("height", "120");
+        d3.select(this.parentNode).select("text").transition().attr("transform", function(d) { return  "translate(" + Math.round(d.x + (d.width/2)) + ", " + (90) + ") rotate(290)"})
+      })
+      .on("mouseout", function(d) {
+        d3.select(this).transition().attr("y","130").attr("height", "90");
+        d3.select(this.parentNode).select("text").transition().attr("transform", function(d) { return  "translate(" + Math.round(d.x + (d.width/2)) + ", " + (120) + ") rotate(290)"})
+      })
+
+  svg2.selectAll(".r2")
+      .transition()
+      .attr("y", "130")
+      .attr("height", "110")
+
+  svg2.selectAll(".bgg")
+      .append("text")
+      .attr("class","bggt")
+      .text(function(d) {
+        return d.lang;
+      })
+      .attr("transform", function(d) {
+        return "translate(" + Math.round(d.x + (d.width/2)) + ", 120) rotate(290)";
+      })
+})
+
+
+
+
+
+
+
+
+
