@@ -3,10 +3,15 @@
 	<head>
   		<meta charset="utf-8">
 
-  		<title>D3</title>
+  		<title>StackIQ - Stack Overflow Visualizer</title>
+
+      <link rel="icon" 
+      type="image/png" 
+      href="icon.png">
 
       <!-- BOOTSTRAP STYLES -->
       <link rel="stylesheet" href="css/bootstrap.min.css">
+      <link rel="stylesheet" href="css/bootstrap-switch.min.css">
 
       <!-- SLIDER STYLE -->
       <link rel="stylesheet" href="css/jquery.nouislider.min.css">
@@ -21,6 +26,7 @@
 
       <!-- Bootstrap -->
       <script src="js/bootstrap.min.js"></script>
+      <script src="js/bootstrap-switch.min.js"></script>
 
     	<!-- SCRIPTS -->
     	<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
@@ -134,6 +140,11 @@
             <p>
             Choose from any of the options in the drop down menu on the right to see <strong>more in-depth information.</strong>
             </p>
+            <h5>Control Set</h5>
+            <p>
+            Toggle the switch below to toggle the control data <strong>(non-engineering topics).</strong>
+            </p>
+            <div class="checkPat"><input type="checkbox" name="eng-check" id="cbox" checked></input></div>
           </div>
         </div>
       </div>

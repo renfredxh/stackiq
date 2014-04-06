@@ -347,7 +347,43 @@ strong {
 
 #svg2 text {
   fill: #999;
+}
 
 .modal-icon {
   margin-bottom: 5px;
+}
+
+.bootstrap-switch {
+  border: solid 1px rgb(232, 107, 36) !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.checkPat{
+  margin-bottom: 15px;
+  margin-top: -10px;
+}
+
+.bootstrap-switch-container {
+  background-color: rgb(232,107,36) !important;
+}
+
+.bootstrap-switch-handle-on {
+  background-color: rgb(232, 107,36) !important;
+  font-size: 12px !important;
+}
+
+.bootstrap-switch label {
+  padding: none !important;
+}
+
+.bootstrap-switch-handle-off {
+  background-color: #fff !important;
+  border-left: solid 1px rgb(232, 107, 36) !important;
+  color: rgb(232, 107, 36) !important;
+  font-size: 12px !important;
+}
+
+.bootstrap-switch-label {
+  font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif !important;
 }
