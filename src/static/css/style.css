@@ -347,4 +347,7 @@ strong {
 
 #svg2 text {
   fill: #999;
+
+.modal-icon {
+  margin-bottom: 5px;
 }
